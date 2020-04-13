@@ -1,6 +1,6 @@
 #!/bin/bash
 # The directory on cloudlab that contains the bootstrap scripts.
-REMOTE_HOME="/proj/bg-PG0/haoyu/550/bootstrap_scripts/remote"
+REMOTE_HOME="/proj/nova-PG0/mianlusc/cs550/bootstrap_scripts/remote"
 
 export DEBIAN_FRONTEND=noninteractive
 

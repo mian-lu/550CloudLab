@@ -1,0 +1,5 @@
+ssh mianlusc@apt127.apt.emulab.net
+ssh mianlusc@node-0.mlrdmat.nova-PG0.apt.emulab.net
+ssh mianlusc@node-1.mlrdmat.nova-PG0.apt.emulab.net
+
+bash /proj/nova-PG0/mianlusc/cs550/bootstrap_scripts/remote/init.sh 2

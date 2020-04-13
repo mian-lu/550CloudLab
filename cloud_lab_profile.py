@@ -41,8 +41,8 @@ for i in range(params.num_nodes):
     node.disk_image = DISK_IMAGE
     node.routable_control_ip = True
     node.Site("site-1")
-    node.addService(pg.Execute(shell="bash", command="/proj/bg-PG0/haoyu/scripts/setup/setup-ssh.sh"))
-    # node.addService(pg.Execute(shell="bash", command="/proj/bg-PG0/haoyu/scripts/setup/setup-env.sh"))
+    node.addService(pg.Execute(shell="bash", command="/proj/nova-PG0/mianlusc/scripts/setup/setup-ssh.sh"))
+    # node.addService(pg.Execute(shell="bash", command="/proj/nova-PG0/mianlusc/scripts/setup/setup-env.sh"))
     iface = node.addInterface("interface-%s" % i)
     ip = "10.0.1." + str(i+1)
     iface.addAddress(pg.IPv4Address(ip, "255.255.255.0"))

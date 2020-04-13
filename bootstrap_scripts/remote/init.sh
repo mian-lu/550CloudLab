@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # The directory on cloudlab that contains the bootstrap scripts.
-REMOTE_HOME="/proj/bg-PG0/haoyu/550/bootstrap_scripts/remote"
+REMOTE_HOME="/proj/nova-PG0/mianlusc/cs550/bootstrap_scripts/remote"
 
 NUM_NODES=$1
 
@@ -19,10 +19,10 @@ done
 sleep 10
 
 sleepcount="0"
-for ((i=0;i<NUM_NODES;i++)); 
+for ((i=0;i<NUM_NODES;i++));
 do
 	while ssh -oStrictHostKeyChecking=no  node-$i "screen -list | grep -q env1"
-	do 
+	do
 		((sleepcount++))
 		sleep 10
 		echo "waiting for node-$i to install libraries"
