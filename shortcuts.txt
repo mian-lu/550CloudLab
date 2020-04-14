@@ -1,13 +1,24 @@
--   SSH commands:
+-   Commands for setting up from scratch:
+// in right here (./)
+bash bootstrap_scripts/local/setup-apt-ssh.sh 2
+
+-   (Optional) SSH commands:
 ssh mianlusc@apt127.apt.emulab.net
 ssh mianlusc@node-0.mlrdmat.nova-PG0.apt.emulab.net
 ssh mianlusc@node-1.mlrdmat.nova-PG0.apt.emulab.net
 
--   Commands for setting up from scratch:
-// in right here (./)
-bash bootstrap_scripts/local/setup-apt-ssh.sh 2
+-   Setup cont'd
 // in node-0
 bash /proj/nova-PG0/mianlusc/cs550/bootstrap_scripts/remote/init.sh 2
 
 -   To test RDMA is running:
 for i in {0..1}; do ssh node-$i.mlrdmat.nova-PG0.apt.emulab.net "ibv_devinfo"; done
+
+================================================================================
+-   To copy mianlu's other repo onto CloudLab:
+// cd into GitHubRepos/mianlu
+ssh -oStrictHostKeyChecking=no mianlusc@node-0.mlrdmat.nova-PG0.apt.emulab.net "mkdir -p /proj/nova-PG0/mianlusc/cs550/RDMALib"
+scp -r ./RDMALib/* mianlusc@node-0.mlrdmat.nova-PG0.apt.emulab.net:/proj/nova-PG0/mianlusc/cs550/RDMALib
+
+================================================================================
+urn:publicid:IDN+apt.emulab.net+image+nova-PG0:mianlu_rdma_test.node-0
