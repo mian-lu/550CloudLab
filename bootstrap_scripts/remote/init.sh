@@ -11,9 +11,9 @@ for ((i=0;i<NUM_NODES;i++)); do
    	echo "******************* Installing libraries for node-$i ********************"
    	echo "*******************************************"
    	echo "*******************************************"
- 	ssh -oStrictHostKeyChecking=no node-$i "sudo apt-get update"
-    ssh -oStrictHostKeyChecking=no node-$i "sudo apt-get --yes install screen"
-    ssh -n -f -oStrictHostKeyChecking=no node-$i screen -L -S env1 -dm "$REMOTE_HOME/env0.sh"
+ 	ssh -oStrictHostKeyChecking=no node-$i.mlrdmat.nova-PG0.apt.emulab.net "sudo apt-get update"
+    ssh -oStrictHostKeyChecking=no node-$i.mlrdmat.nova-PG0.apt.emulab.net "sudo apt-get --yes install screen"
+    ssh -n -f -oStrictHostKeyChecking=no node-$i.mlrdmat.nova-PG0.apt.emulab.net screen -L -S env1 -dm "$REMOTE_HOME/env0.sh"
 done
 
 sleep 10
@@ -21,7 +21,7 @@ sleep 10
 sleepcount="0"
 for ((i=0;i<NUM_NODES;i++));
 do
-	while ssh -oStrictHostKeyChecking=no  node-$i "screen -list | grep -q env1"
+	while ssh -oStrictHostKeyChecking=no  node-$i.mlrdmat.nova-PG0.apt.emulab.net "screen -list | grep -q env1"
 	do
 		((sleepcount++))
 		sleep 10
