@@ -13,6 +13,10 @@ bash /proj/nova-PG0/mianlusc/cs550/bootstrap_scripts/remote/init.sh 2
 
 -   To test RDMA is running:
 for i in {0..1}; do ssh node-$i.mlrdmat.nova-PG0.apt.emulab.net "ibv_devinfo"; done
+-   To test RDMA benchmark, on node-0:
+ib_send_bw
+on node-1:
+ib_send_bw node-0
 
 ================================================================================
 -   To copy mianlu's other repo onto CloudLab:
@@ -21,4 +25,5 @@ ssh -oStrictHostKeyChecking=no mianlusc@node-0.mlrdmat.nova-PG0.apt.emulab.net "
 scp -r ./RDMALib/* mianlusc@node-0.mlrdmat.nova-PG0.apt.emulab.net:/proj/nova-PG0/mianlusc/cs550/RDMALib
 
 ================================================================================
+-   Saved (cloned) VM node-0 with cmake 3.17.1 image URL:
 urn:publicid:IDN+apt.emulab.net+image+nova-PG0:mianlu_rdma_test.node-0
