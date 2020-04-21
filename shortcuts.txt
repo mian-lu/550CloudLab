@@ -27,3 +27,15 @@ scp -r ./RDMALib/* mianlusc@node-0.mlrdmat.nova-PG0.apt.emulab.net:/proj/nova-PG
 ================================================================================
 -   Saved (cloned) VM node-0 with cmake 3.17.1 image URL:
 urn:publicid:IDN+apt.emulab.net+image+nova-PG0:mianlu_rdma_test.node-0
+
+================================================================================
+-   To run my desired program (example_main)
+// on node-0
+./nova_p2_main --mem_pool_size_gb=1 --nrdma_workers=1 --rdma_doorbell_batch_size=8 --rdma_max_msg_size=1024 --rdma_max_num_sends=128 --rdma_port=11211 --server_id=0 --servers=node-0:11211,node-1:11211
+// on node-1
+./nova_p2_main --mem_pool_size_gb=1 --nrdma_workers=1 --rdma_doorbell_batch_size=8 --rdma_max_msg_size=1024 --rdma_max_num_sends=128 --rdma_port=11211 --server_id=1 --servers=node-0:11211,node-1:11211
+
+// on node-0
+./example_main --mem_pool_size_gb=1 --nrdma_workers=1 --rdma_doorbell_batch_size=8 --rdma_max_msg_size=1024 --rdma_max_num_sends=128 --rdma_port=11211 --server_id=0 --servers=node-0:11211,node-1:11211
+// on node-1
+./example_main --mem_pool_size_gb=1 --nrdma_workers=1 --rdma_doorbell_batch_size=8 --rdma_max_msg_size=1024 --rdma_max_num_sends=128 --rdma_port=11211 --server_id=1 --servers=node-0:11211,node-1:11211
